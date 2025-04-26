@@ -1,6 +1,6 @@
 import { ManageAccount } from './firebaseConnect.js';
 
-document.getElementById("form").addEventListener("submit", (event) => {
+document.getElementById("loginform").addEventListener("submit", (event) => {
   event.preventDefault();
 
   const email = document.getElementById("floatingInput1").value;
