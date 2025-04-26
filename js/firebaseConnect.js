@@ -23,9 +23,7 @@ const auth = firebase.auth();
 
 export class ManageAccount {
   register(email, password) {
-    email = document.getElementById("floatingInput1").value;
-    password = document.getElementById("floatingPassword").value;
-    auth.createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth,email, password)
       .then((_) => {
         window.location.href = "https://franciscoortiz-gif.github.io/autcloud/login.html";
         // Mostrar alerta de registro exitoso
@@ -39,8 +37,6 @@ export class ManageAccount {
   }
 
   authenticate(email, password) {
-    email = document.getElementById("floatingInput1").value;
-    password = document.getElementById("floatingPassword").value;
     signInWithEmailAndPassword(auth, email, password)
       .then((_) => {
         window.location.href = "https://franciscoortiz-gif.github.io/autcloud/index.html";
