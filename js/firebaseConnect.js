@@ -5,7 +5,8 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -18,8 +19,8 @@ const firebaseConfig = {
     measurementId: "G-N1XRBSQYJ5"
   };
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
 export class ManageAccount {
   register(email, password) {
