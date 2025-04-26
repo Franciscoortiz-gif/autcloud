@@ -6,9 +6,11 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+//import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { initializeApp } from 'https://cdn.jsdelivr.net/npm/firebase@^9.1.2/firebase-app.js/+esm' 
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://cdn.jsdelivr.net/npm/firebase@^9.1.2/firebase-auth.js/+esm' 
 
 const firebaseConfig = {
     apiKey: "AIzaSyAZee6lyFqHynH50WS5BEU8_2MZOSY9bnk",
@@ -63,3 +65,4 @@ export class ManageAccount {
       });
   }
 }
+
