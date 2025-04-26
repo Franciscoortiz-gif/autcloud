@@ -1,10 +1,5 @@
-import { auth } from './firebaseConnect.js';
 
-const user = auth.currentUser;
-const name = document.getElementById("username");
-const emailuser = document.getElementById("useremal");
-if(user !== null){
-    name.innerHTML = user.displayName;
-    emailuser.innerHTML = user.email;
+export const nameuser = document.getElementById("username");
+export const emailuser = document.getElementById("useremal");
 
-}
+
