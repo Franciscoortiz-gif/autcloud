@@ -6,11 +6,12 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 
-//import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js'
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
 //import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-import { initializeApp } from 'https://cdn.jsdelivr.net/npm/firebase@^9.1.2/firebase-app.js/+esm' 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://cdn.jsdelivr.net/npm/firebase@^9.1.2/firebase-auth.js/+esm' 
+//import { initializeApp } from 'https://cdn.jsdelivr.net/npm/firebase@^9.1.2/firebase-app.js/+esm' 
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js'
+import firebase from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"; 
 
 const firebaseConfig = {
     apiKey: "AIzaSyAZee6lyFqHynH50WS5BEU8_2MZOSY9bnk",
@@ -22,9 +23,10 @@ const firebaseConfig = {
     measurementId: "G-N1XRBSQYJ5"
   };
 
-const app = initializeApp(firebaseConfig);
+  const firebaseApp = firebase.initializeApp({ firebaseConfig });
 const analytics = getAnalytics(app);
-const auth = getAuth();
+const auth = firebaseApp.auth();
+const db = firebaseApp.firestore();
 
 export class ManageAccount {
   register(email, password) {
@@ -65,4 +67,3 @@ export class ManageAccount {
       });
   }
 }
-
