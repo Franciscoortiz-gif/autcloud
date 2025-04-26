@@ -6,7 +6,8 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import { nameuser, emailuser } from "./dashboard.js";
+import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -21,6 +22,23 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      const uid = user.uid;
+      const name = user.displayName;
+      nameuser.innerHTML = name;
+      const email = user.email;
+      emailuser.innerHTML = email;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
 
 export class ManageAccount {
   register(email, password) {
