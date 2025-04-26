@@ -6,12 +6,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js'
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
-//import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-//import { initializeApp } from 'https://cdn.jsdelivr.net/npm/firebase@^9.1.2/firebase-app.js/+esm' 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js'
-import firebase from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"; 
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAZee6lyFqHynH50WS5BEU8_2MZOSY9bnk",
@@ -23,14 +18,14 @@ const firebaseConfig = {
     measurementId: "G-N1XRBSQYJ5"
   };
 
-  const firebaseApp = firebase.initializeApp({ firebaseConfig });
-const analytics = getAnalytics(app);
-const auth = firebaseApp.auth();
-const db = firebaseApp.firestore();
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
 export class ManageAccount {
   register(email, password) {
-    createUserWithEmailAndPassword(auth, email, password)
+    email = document.getElementById("floatingInput1").value;
+    password = document.getElementById("floatingPassword").value;
+    auth.createUserWithEmailAndPassword(email, password)
       .then((_) => {
         window.location.href = "https://franciscoortiz-gif.github.io/autcloud/login.html";
         // Mostrar alerta de registro exitoso
@@ -44,6 +39,8 @@ export class ManageAccount {
   }
 
   authenticate(email, password) {
+    email = document.getElementById("floatingInput1").value;
+    password = document.getElementById("floatingPassword").value;
     signInWithEmailAndPassword(auth, email, password)
       .then((_) => {
         window.location.href = "https://franciscoortiz-gif.github.io/autcloud/index.html";
