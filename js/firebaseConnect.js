@@ -6,7 +6,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -60,4 +60,16 @@ export class ManageAccount {
         console.error(error.message);
       });
   }
+  resetpass(email){
+    sendPasswordResetEmail(auth, email).then(()=>{
+        //Envia email
+        alert("Correo de recuperacion enviado")
+    })
+    .catch((error) =>{
+        const errorcode = error.code;
+        const errorMessage = error.message;
+        alert("No se a podido enviar el correo de recuperacion" + errorMessage)
+    });
+  }
 }
+ 
