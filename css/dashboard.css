@@ -264,13 +264,13 @@
     flex-direction: column;
   }
   
-  .user-name {
+  #username {
     font-weight: 600;
     font-size: 14px;
     color: #ffffff;
   }
   
-  .user-role {
+  #useremal {
     font-size: 12px;
     color: #ffffff;
   }
