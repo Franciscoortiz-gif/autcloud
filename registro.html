@@ -43,12 +43,174 @@
         -moz-user-select: none;
         user-select: none;
         }
+        #image{
+        margin-left: 3%; margin-top: 32%;width: 400;height:250;
+        }
+        #passtext{
+            display: flex; align-items: center; width: 107%;
+        }
 
-        @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
+        @media(max-width: 1025px){
+        #backform1{
+          position: absolute;
+              width: 300px;
+              height:600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-42%, -49%);
+            vertical-align: middle;
+            text-align: center;
+            background-color: aliceblue;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(80, 80, 80, 0.3);
+            text-shadow: 0px 0px 0px rgba(80, 80, 80, 0.3);
+            display: grid;
+            grid-template-rows: 200px 350px;
+            grid-template-columns: 1fr;
+              grid-row-start: 1;
+              grid-row-end: 2;
+              -ms-grid-column-align: center;
+              -ms-grid-row-align: center;
+              justify-items: center;
+              align-items: baseline;
+              justify-content: center;
+              align-content: stretch;
+            }
+            .box1{
+                width: 300px;
+                background: linear-gradient(70deg, #000000 , #3e3e3e);
+                z-index: 1;
+                height:190px;
+                border-bottom-left-radius: 0px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                
+            }
+            .box2{
+                width: 300px;
+                z-index: 1;
+                margin-left: 20px;
+                text-align: center;
+                height: 350px;
+            }
+            #image{
+                width: 200px;
+                height: 150px;
+                margin-left: 15%;
+                margin-top: 5%;
+            }
+            #textlog{
+            font-size: 36;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 0px;
+            }
+            #casi{
+                width: 95%;
+            }
+            #casi2{
+                width: 95%;
+            }
+            #passtext{
+                display: flex; align-items: center; width: 105%;
+            }
+            #recob{
+            margin-left: 38%;
+            }
+            #btn1{
+                background: linear-gradient(70deg, #64d0eb , #2c76cc);
+                color: #ffffff;
+                transition: all 300ms;
+                width: 95%;
+                height: 50px;
+                margin-right: 20px;
+            }
+            #video_background{
+                display: none;
+            }
+            #bod{
+                background-color: #202429;
+            }
         }
+        @media (max-width: 400px){
+            #backform1{
+          position: absolute;
+              width: 300px;
+              height:600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-40%, -39%);
+            vertical-align: middle;
+            text-align: center;
+            background-color: aliceblue;
+            box-shadow: 10px 10px 10px rgba(80, 80, 80, 0.3);
+            text-shadow: 0px 0px 0px rgba(80, 80, 80, 0.3);
+            display: grid;
+            grid-template-rows: 200px 350px;
+            grid-template-columns: 1fr;
+              grid-row-start: 1;
+              grid-row-end: 2;
+              -ms-grid-column-align: center;
+              -ms-grid-row-align: center;
+              justify-items: center;
+              align-items: baseline;
+              justify-content: center;
+              align-content: stretch;
+            }
+            .box1{
+                width: 300px;
+                background: linear-gradient(70deg, #000000 , #3e3e3e);
+                z-index: 1;
+                height:190px;
+                border-bottom-left-radius: 0px;
+                border-top-left-radius: 0px;
+                
+            }
+            .box2{
+                width: 300px;
+                z-index: 1;
+                margin-left: 20px;
+                text-align: center;
+                height: 350px;
+            }
+            #image{
+                width: 200px;
+                height: 150px;
+                margin-left: 15%;
+                margin-top: 5%;
+            }
+            #textlog{
+            font-size: 36;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 5px;
+            }
+            #casi{
+                width: 95%;
+            }
+            #casi2{
+                width: 95%;
+            }
+            #passtext{
+                display: flex; align-items: center; width: 105%;
+            }
+            #recob{
+            margin-left: 38%;
+            }
+            #btn1{
+            background: linear-gradient(70deg, #64d0eb , #2c76cc);
+            color: #ffffff;
+            transition: all 300ms;
+            margin-top: 10;
+            width: 98%;
+            height: 50px;
+            }
+            #video_background{
+                display: none;
+            }
+            #bod{
+                background-color: #202429;
+            }
         }
+
 
         #btn1{
             background: linear-gradient(70deg, #64d0eb , #2c76cc);
@@ -75,7 +237,7 @@
     </style>
 
 </head>
-<body class="text-center" style="text-align: center;">
+<body class="text-center" style="text-align: center;" id="bod">
     <video id="video_background" onloadedmetadata="this.muted = true" autoplay muted loop>
         <source src="./images/14668-258508783_small.mp4" type="video/mp4" />
     </video>
@@ -84,17 +246,17 @@
         <form class="form1" id="formul">
             <div class="box" id="backform1">
                 <div class="box box1">
-                    <img class="mb-4" src="./images/logo.png" alt="" width="400" height="900" style="margin-left: 3%; margin-top: 32%;">
+                    <img class="mb-4" src="./images/logo.png" alt="" id="image">
 
                 </div>
             
                 <div class="box box2">
                     <h1 class="h3 mb-3 fw-normal" id="textlog">Registro</h1>
-                    <div class="form-floating">
+                    <div class="form-floating" id="casi">
                         <input type="email" class="form-control" id="floatingInput1" placeholder="name234565@example.com" style="margin-bottom: 10px;margin-top: 50px;">
                         <label for="floatingInput">Correo Electronico</label>
                     </div>
-                    <div class="form-floating" style="display: flex; align-items: center; width: 107%;">
+                    <div class="form-floating" id="passtext">
                         <input type="password" class="form-control" id="floatingPassword" placeholder="Password" style="margin-bottom: 10px;">
                         <label for="floatingPassword">Contraseña</label>
                         <i class="bx bx-show-alt" style="font-size: 30px;
@@ -102,12 +264,12 @@
                         cursor: pointer;" id="iconeye"></i>
                     </div>
 
-                    <div class="form-floating">
+                    <div class="form-floating" id="casi2">
                         <input type="text" class="form-control" id="floatingEmpre" placeholder="Empresa" style="margin-bottom: 10px;">
                         <label for="floatingEmpre">Empresa</label>
                     </div>
                     
-                    <button class="w-100 btn btn-lg btn-primary" type="submit" id="btn1">Registrar</button>
+                    <button class="btn" type="submit" id="btn1">Registrar</button>
                     <label id="regi">¿Ya tienes cuenta?
                         <a href="https://franciscoortiz-gif.github.io/autcloud/login.html">Inicia Sesion</a>
                     </label>
