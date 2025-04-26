@@ -26,7 +26,6 @@
           top: 50%;
           left: 50%;
           transform: translate(-49%, -49%);
-          border-radius: 20px;
           vertical-align: middle;
           text-align: center;
           background-color: aliceblue;
@@ -51,8 +50,6 @@
         background: linear-gradient(70deg, #000000 , #3e3e3e);
         z-index: 1;
         height:600;
-        border-bottom-left-radius: 20px;
-        border-top-left-radius: 20px;
         
         
       }
@@ -73,3 +70,6 @@
         text-justify: auto;
         margin-top: 10px;
       }
+      
+
+      
