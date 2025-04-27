@@ -96,6 +96,7 @@
       <!-- Header -->
       <div class="header">
         <div class="search-bar">
+          <i class="fas fa-search"></i>
         </div>
         <div class="header-actions">
           <div class="user-profile">
@@ -113,11 +114,10 @@
         <div class="page-title">
           <div class="title">Dispositivos</div>
           <div class="action-buttons">
-            <button popoovertarget="popup" class="btn btn-primary" >
+            <button class="btn btn-primary" id="add" >
               <i class="fas fa-plus"></i>
               Add New
             </button>
-              <div popover id="popup">Pueba</div>
           </div>
         </div>
 
@@ -150,30 +150,32 @@
     <!-- ventana add new -->
     <div id="addnew">
       <div id="winaddnew">
-        <label>Añadir Dispositivos</label>
+        <div id="casi7">
+          <label id="tit">Añadir Dispositivos</label>
+        </div>
         <div id="casi1">
-          <input type="text" id="nombre" placeholder="Mi Dispositivo">
-          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" required>
+          <label for="nombre" class="nom">Nombre</label>
         </div>
         <div id="casi2">
           <input type="checkbox" id="activo">
           <label for="activo">Activar</label>
         </div>
         <div id="casi6">
-          <input type="text" id="Ip" placeholder="192.168.1.5">
-          <label for="Ip">Nombre</label>
+          <input type="text" id="Ip" required>
+          <label for="Ip">Ip o servidor</label>
         </div>
         <div id="casi3">
-          <label for="prot">Protocolo</label>
-          <select name="Protocolo" id="proto">
-            <option value="mqtt">MQTT</option>
-            <option value="opcua">OPC UA</option>
-            <option value="modbustcp">MODBUS TCP</option>
-            <option value="ethernet">ETHERNET IP</option>
+          <label for="prot" class="pro">Protocolo</label>
+          <select name="Protocolo" id="proto" required>
+            <option value="mqtt" id="it1">MQTT</option>
+            <option value="opcua" id="it2">OPC UA</option>
+            <option value="modbustcp" id="it3">MODBUS TCP</option>
+            <option value="ethernet" id="it4">ETHERNET IP</option>
           </select>
         </div>
         <div id="casi5">
-          <input type="button" id="erase" value="Guardar">
+          <input type="button" id="save" value="Guardar">
         </div>
       </div>
   </div>
