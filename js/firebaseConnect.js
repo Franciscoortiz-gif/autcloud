@@ -6,9 +6,9 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js"
 import { nameuser, emailuser, imageuser } from "./dashboard.js";
 import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyAZee6lyFqHynH50WS5BEU8_2MZOSY9bnk",
@@ -22,6 +22,10 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+//BAse de datos no relacional (NoSQL)
+export const db = getFirestore(app);
+
+
 
 
 onAuthStateChanged(auth, (user) => {
@@ -66,7 +70,7 @@ export class ManageAccount {
       .then((_) => {
         window.location.href = "https://franciscoortiz-gif.github.io/autcloud/index.html";
         // Mostrar alerta de inicio de sesión exitoso
-        alert("Has iniciado sesión correctamente. Serás redirigido a la página principal.");
+        alert("inicio de sesión exitoso");
       })
       .catch((error) => {
         console.error(error.message);
