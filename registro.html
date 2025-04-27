@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +12,7 @@
 
     
 
-    <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
         <!-- Favicons -->
     <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -49,6 +47,99 @@
         #passtext{
             display: flex; align-items: center; width: 107%;
         }
+        #bod1{
+            background: linear-gradient(70deg, #111022 , #003953);
+        }
+        #backform1{
+            position: absolute;
+            width: 900px;
+            height:600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-49%, -49%);
+            vertical-align: middle;
+            text-align: center;
+            background-color: aliceblue;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px rgba(80, 80, 80, 0.3);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 900px;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            -ms-grid-column-align: center;
+            -ms-grid-row-align: center;
+            justify-items: center;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+        .box1{
+            width: 450px;
+            background: linear-gradient(70deg, #000000 , #3e3e3e);
+            z-index: 1;
+            height:600px;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+
+        }
+        .form1{
+            position: absolute;
+                width: 500px;
+                height: max-content;
+            top: 50%;
+            left: 50%;
+            transform: translate(-49%, -49%);
+            vertical-align: middle;
+            text-align: center
+        }
+        .box2{
+            width: 400px;
+            z-index: 2;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        #textlog{
+            font-size: 48;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 20px;
+        }
+        #regi{
+            text-align: left;
+            text-justify: auto;
+            margin-top: 10px;
+        }
+        #textlog{
+            font-size: 48px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #btn1{
+            background: linear-gradient(70deg, #64d0eb , #2c76cc);
+            color: #ffffff;
+            transition: all 300ms;
+            margin-bottom: 5px;
+            width: 95%;
+            height: 50px;
+        }
+        #btn1:hover{
+            text-shadow: 0px 0px 6px #ffffff;
+            background: linear-gradient(70deg, #51a0b4 , #225da0);
+            border-color: #7db5ff;
+            border-radius: 10px;
+            border: 5px;
+            transition: all 300ms;
+        }
+        #btn1:focus{
+            text-shadow: 0px 0px 6px #ffffff;
+            background: linear-gradient(70deg, #407e8d , #17406e);
+            border-color: #7db5ff;
+            border-radius: 10px;
+            border: 5px;
+            transition: all 300ms;
+        }
 
         @media(max-width: 1025px){
         #backform1{
@@ -59,9 +150,9 @@
             left: 50%;
             transform: translate(-42%, -49%);
             vertical-align: middle;
+            border-radius: 10px;
             text-align: center;
             background-color: aliceblue;
-            border-radius: 10px;
             box-shadow: 10px 10px 10px rgba(80, 80, 80, 0.3);
             text-shadow: 0px 0px 0px rgba(80, 80, 80, 0.3);
             display: grid;
@@ -124,11 +215,9 @@
                 height: 50px;
                 margin-right: 20px;
             }
-            #video_background{
-                display: none;
-            }
-            #bod{
+            #bod1{
                 background-color: #202429;
+                background: linear-gradient(70deg, #202429 , #202429);
             }
         }
         @media (max-width: 400px){
@@ -200,47 +289,21 @@
             color: #ffffff;
             transition: all 300ms;
             margin-top: 10;
-            width: 98%;
+            width: 95%;
             height: 50px;
             }
-            #video_background{
-                display: none;
-            }
-            #bod{
+            #bod1{
                 background-color: #202429;
+                background: linear-gradient(70deg, #202429 , #202429);
             }
         }
 
 
-        #btn1{
-            background: linear-gradient(70deg, #64d0eb , #2c76cc);
-            color: #ffffff;
-            transition: all 300ms;
-            margin-bottom: 5px;
-        }
-        #btn1:hover{
-            text-shadow: 0px 0px 6px #ffffff;
-            background: linear-gradient(70deg, #51a0b4 , #225da0);
-            border-color: #7db5ff;
-            border-radius: 10px;
-            border: 5px;
-            transition: all 300ms;
-        }
-        #btn1:focus{
-            text-shadow: 0px 0px 6px #ffffff;
-            background: linear-gradient(70deg, #407e8d , #17406e);
-            border-color: #7db5ff;
-            border-radius: 10px;
-            border: 5px;
-            transition: all 300ms;
-        }
+        
     </style>
 
 </head>
-<body class="text-center" style="text-align: center;" id="bod">
-    <video id="video_background" onloadedmetadata="this.muted = true" autoplay muted loop>
-        <source src="./images/14668-258508783_small.mp4" type="video/mp4" />
-    </video>
+<body class="text-center" id="bod1">
 
     <main class="form-signin">
         <form class="form1" id="formul">
