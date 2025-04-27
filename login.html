@@ -43,6 +43,9 @@
         #recob{
             margin-left: 60%;
         }
+        #bod{
+            background: linear-gradient(70deg, #111022 , #003953);
+            }
 
         @media(max-width: 1025px){
         #backform{
@@ -55,7 +58,7 @@
             vertical-align: middle;
             text-align: center;
             background-color: aliceblue;
-            box-shadow: 10px 10px 10px rgba(80, 80, 80, 0.3);
+            box-shadow: 20px 20px 20px rgba(80, 80, 80, 0.3);
             text-shadow: 0px 0px 0px rgba(80, 80, 80, 0.3);
             display: grid;
             grid-template-rows: 200px 350px;
@@ -114,11 +117,9 @@
             width: 98%;
             height: 50px;
             }
-            #video_background{
-                display: none;
-            }
             #bod{
                 background-color: #202429;
+                background: linear-gradient(70deg, #202429 , #202429);
             }
         }
         @media (max-width: 400px){
@@ -190,11 +191,9 @@
             width: 98%;
             height: 50px;
             }
-            #video_background{
-                display: none;
-            }
             #bod{
                 background-color: #202429;
+                background: linear-gradient(70deg, #202429 , #202429);
             }
         }
 
@@ -236,9 +235,7 @@
     
   </head>
   <body id="bod" class="text-center" style="text-align: center;">
-        <video id="video_background" onloadedmetadata="this.muted = true" autoplay muted loop>
-            <source src="./images/14668-258508783-small_Edv70DRk.mp4" type="video/mp4" />
-        </video>
+        
     
     <main class="form-signin">
             <form class="form" id="loginform">
