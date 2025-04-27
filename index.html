@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./css/index.css" rel="stylesheet" href="">
+
+        <!-- Favicons -->
+    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="./images/logo.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="./images/logo.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+    <link rel="icon" href="./images/logo.png">
+    <meta name="theme-color" content="#7952b3">
+    <script type="module" src="./js/firebaseConnect.js" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
@@ -79,7 +97,6 @@
       <div class="header">
         <div class="search-bar">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Search..." />
         </div>
         <div class="header-actions">
           <div class="user-profile">
@@ -97,10 +114,11 @@
         <div class="page-title">
           <div class="title">Dispositivos</div>
           <div class="action-buttons">
-            <button class="btn btn-primary">
+            <button popoovertarget="popup" class="btn btn-primary" >
               <i class="fas fa-plus"></i>
               Add New
             </button>
+              <div popover id="popup">Pueba</div>
           </div>
         </div>
 
@@ -130,5 +148,32 @@
         </div>
       </div>
     </div>
+    <!-- ventana add new -->
+    <div id="addnew">
+      <div id="winaddnew">
+        <label>Añadir Dispositivos</label>
+        <div id="casi1">
+          <input type="text" id="nombre" placeholder="Mi Dispositivo">
+          <label for="nombre">Nombre</label>
+        </div>
+        <div id="casi2">
+          <input type="checkbox" id="activo">
+          <label for="activo">Activar</label>
+        </div>
+        <div id="casi3">
+          <label for="prot">Protocolo</label>
+          <select name="Protocolo" id="proto">
+            <option value="mqtt">MQTT</option>
+            <option value="opcua">OPC UA</option>
+            <option value="modbustcp">MODBUS TCP</option>
+            <option value="ethernet">ETHERNET IP</option>
+          </select>
+        </div>
+        <div id="casi5">
+          <input type="button" id="erase" value="Guardar">
+        </div>
+      </div>
+  </div>
+    
   </body>
 </html>
