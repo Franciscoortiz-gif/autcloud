@@ -7,9 +7,8 @@
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+import { getFirestore, addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 import { nameuser, emailuser, imageuser} from "./dash.js";
-import {email12} from "./log2.js"
 import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -29,11 +28,10 @@ export const db = getFirestore(app);
 
 
 
-onAuthStateChanged(auth, (user) => {
+ onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
-      const uid = user.uid;
       const name = user.displayName;
       nameuser.innerHTML = name;
       const email = user.email;
@@ -49,13 +47,27 @@ onAuthStateChanged(auth, (user) => {
       // User is signed out
       // ...
     }
-    
   });
+  const userr = await auth.currentUser;
+  console.log(userr);
+  async function reguser(email, empresa, password) {
+    try {
+      const docRef = await addDoc(collection(db, "usuarios"), {
+        mail: email,
+        empresa: empresa,
+        pass: password,
+      });
+    
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.log("Error adding document: ", e);
+    }
+  }
+  export {reguser};
 
   async function regisdata(nombredev, ip,protoc){
     try {
       const docRef = await addDoc(collection(db, "Dispositivos"), {
-        user: email12,
         nombre: nombredev,
         ip: ip,
         protocolo: protoc,
