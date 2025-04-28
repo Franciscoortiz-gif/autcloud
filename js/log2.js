@@ -1,0 +1,1 @@
+export let email12 = document.getElementById("floatingInput1").value;
