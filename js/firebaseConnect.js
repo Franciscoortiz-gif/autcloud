@@ -5,9 +5,10 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js"
-import { nameuser, emailuser, imageuser } from "./dashboard.js";
+import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+import { nameuser, emailuser, imageuser} from "./dashboard.js";
 import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -24,7 +25,6 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 //BAse de datos no relacional (NoSQL)
 export const db = getFirestore(app);
-
 
 
 
@@ -48,7 +48,24 @@ onAuthStateChanged(auth, (user) => {
       // User is signed out
       // ...
     }
+    
   });
+
+  async function regisdata(nombredev, ip,protoc){
+    try {
+      const docRef = await addDoc(collection(db, "Dispositivos"), {
+        user: emailuser,
+        nombre: nombredev,
+        ip: ip,
+        protocolo: protoc,
+      });
+    
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.log("Error adding document: ", e);
+    }
+  }
+export {regisdata};
 
 export class ManageAccount {
   register(email, password) {
