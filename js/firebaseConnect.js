@@ -54,10 +54,10 @@ onAuthStateChanged(auth, (user) => {
   async function regisdata(nombredev, ip,protoc){
     try {
       const docRef = await addDoc(collection(db, "Dispositivos"), {
-        user: emailuser,
-        nombre: nombredev,
-        ip: ip,
-        protocolo: protoc,
+        user: "hola",
+        nombre: "oiij",
+        ip: "ip",
+        protocolo: "protoc",
       });
     
       console.log("Document written with ID: ", docRef.id);
