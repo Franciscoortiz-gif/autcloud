@@ -3,7 +3,7 @@ const open = document.getElementById("add");
 const page = document.getElementById("addnew");
 const close = document.getElementById("save");
 
-import {regisdata} from "./firebaseConnect.js";
+
 open.addEventListener("click", () =>{
     page.style.animation = "ind .6s"
     page.style.opacity = "1";
