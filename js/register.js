@@ -1,13 +1,15 @@
-import { ManageAccount } from './firebaseConnect.js';
+import { ManageAccount, reguser } from './firebaseConnect.js';
 
 document.getElementById("formul").addEventListener('submit',(event) => {
   event.preventDefault();
 
   const email = document.getElementById("floatingInput1").value;
   const password = document.getElementById("floatingPassword").value;
+  let empres = document.getElementById("floatingEmpre").value;
 
   const account = new ManageAccount();
   account.register(email, password);
+  reguser(email,empres,password);
 
 });
 
