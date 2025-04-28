@@ -9,7 +9,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getFirestore, addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 import { nameuser, emailuser, imageuser} from "./dash.js";
-import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, sendPasswordResetEmail, onAuthStateChanged, inMemoryPersistence,setPersistence} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAZee6lyFqHynH50WS5BEU8_2MZOSY9bnk",
@@ -25,7 +25,6 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 //BAse de datos no relacional (NoSQL)
 export const db = getFirestore(app);
-
 
 
  onAuthStateChanged(auth, (user) => {
@@ -48,8 +47,7 @@ export const db = getFirestore(app);
       // ...
     }
   });
-  const userr = await auth.currentUser;
-  console.log(userr);
+  
   async function reguser(email, empresa, password) {
     try {
       const docRef = await addDoc(collection(db, "usuarios"), {
@@ -79,6 +77,35 @@ export const db = getFirestore(app);
     }
   }
 export {regisdata};
+function authenticate(email, password) {
+  
+  setPersistence(auth, inMemoryPersistence)
+  .then(() => {
+    signInWithEmailAndPassword(auth, email, password)
+    .then((_) => {
+      
+      // Mostrar alerta de inicio de sesión exitoso
+      alert("inicio de sesión exitoso");
+      let usuario = auth.currentUser;
+      console.log(usuario);
+      window.location.href = "https://franciscoortiz-gif.github.io/autcloud/index.html";
+    })
+    .catch((error) => {
+      console.error(error.message);
+              // Mostrar alerta de error de inicio de sesión
+              alert("Error al iniciar sesión: " + error.message);
+    });
+    // In memory persistence will be applied to the signed in Google user
+    // even though the persistence was set to 'none' and a page redirect
+    // occurred.
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+}
+export {authenticate}
 
 export class ManageAccount {
   register(email, password) {
@@ -87,27 +114,14 @@ export class ManageAccount {
         window.location.href = "https://franciscoortiz-gif.github.io/autcloud/login.html";
         // Mostrar alerta de registro exitoso
         alert("Registro exitoso. Serás redirigido a la página de inicio de sesión.");
+        console.log(currentUser)
       })
       .catch((error) => {
-        console.error(error.message);
             // Mostrar alerta de error de registro
             alert("Error al registrar: " + error.message);
       });
   }
 
-  authenticate(email, password) {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((_) => {
-        window.location.href = "https://franciscoortiz-gif.github.io/autcloud/index.html";
-        // Mostrar alerta de inicio de sesión exitoso
-        alert("inicio de sesión exitoso");
-      })
-      .catch((error) => {
-        console.error(error.message);
-                // Mostrar alerta de error de inicio de sesión
-                alert("Error al iniciar sesión: " + error.message);
-      });
-  }
 
   signOut() {
     signOut(auth)
@@ -130,4 +144,8 @@ export class ManageAccount {
     });
   }
 }
+
+let curren = null;
+auth.onAuthStateChanged((user) => (curren = user));
+  console.log(curren);
  
