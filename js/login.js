@@ -10,6 +10,7 @@ document.getElementById("loginform").addEventListener("submit", (event) => {
   account.authenticate(email, password);
   
 });
+export let email12 = document.getElementById("floatingInput1").value;
 
 document.getElementById("recober").addEventListener("click", (e)=>{
   e.preventDefault();
