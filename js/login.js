@@ -1,4 +1,4 @@
-import { ManageAccount } from './firebaseConnect.js';
+import { ManageAccount, authenticate } from './firebaseConnect.js';
 
 document.getElementById("loginform").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -6,11 +6,9 @@ document.getElementById("loginform").addEventListener("submit", (event) => {
   const email = document.getElementById("floatingInput1").value;
   const password = document.getElementById("floatingPassword").value;
 
-  const account = new ManageAccount();
-  account.authenticate(email, password);
+  let suer = authenticate(email, password);
   
 });
-
 
 document.getElementById("recober").addEventListener("click", (e)=>{
   e.preventDefault();
