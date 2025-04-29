@@ -1,14 +1,13 @@
 const btnlog = document.getElementById("btn1");
-const emailinput = document.getElementById("floatingInput1").value;
-const passinput = document.getElementById("floatingPassword").value;
 let usercurrent;
 import {auth} from "./confire.js";
+import {signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js'
 
-function login(email,pass){
-    auth.createUserWithEmailAndPassword(email, pass)
+function login(emaill,pass){
+    signInWithEmailAndPassword(auth,emaill, pass)
     .then((userCredential) => {
         // Signed in 
-        var user = userCredential.user;
+        const user = userCredential.user;
         alert("inicio de sesion correcto se te ridigira a la pagina principal");
     })
     .catch((error) => {
@@ -22,10 +21,13 @@ function login(email,pass){
     }
     return usercur;
 };
-
-btnlog.addEventListener('click',(e) =>{
-    console.log(e);
-    usercurrent = login(emailinput, passinput);
+document.getElementById("loginform").addEventListener("submit", (event) => {
+    event.preventDefault();
+  
+    const email = document.getElementById("floatingInput1").value;
+    const password = document.getElementById("floatingPassword").value;
+    console.log(email + password);
+    usercurrent = login(email, password);
     console.log(usercurrent);
-});
-    
+});  
+export {usercurrent};
